@@ -133,6 +133,7 @@ function googleSignOut() {
       // Sign-out successful.
 
       console.log("sign out successful");
+      location.reload();
     })
     .catch((error) => {
       // An error happened.
