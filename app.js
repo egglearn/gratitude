@@ -92,10 +92,11 @@ firebase.auth().onAuthStateChanged(function (user) {
   gratitudeBtn.addEventListener("click", reader);
 
   //only want reader to work if someone is signed in
-  if (user) {
-    function reader(e) {
-      e.preventDefault();
 
+  function reader(e) {
+    e.preventDefault();
+
+    if (user) {
       firebase
         .database()
         .ref("users/" + uid)
