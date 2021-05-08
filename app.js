@@ -77,6 +77,7 @@ firebase.auth().onAuthStateChanged(function (user) {
     // No user is signed in.
   }
 
+  addGratitude.addEventListener("click", writeUserData);
   function writeUserData(e) {
     e.preventDefault();
     console.log("added gratitude entry");
@@ -140,5 +141,4 @@ function reader(e) {
   });
 }
 
-//addGratitude.addEventListener("click", writeUserData);
 gratitudeBtn.addEventListener("click", reader);
