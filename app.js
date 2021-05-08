@@ -78,23 +78,6 @@ function googleSignOut() {
 signIn.addEventListener("click", googleSignIn);
 signOut.addEventListener("click", googleSignOut);
 
-firebase.auth().onAuthStateChanged(function (user) {
-  if (user) {
-    let uid = user.uid;
-    console.log(uid);
-    // User is signed in.
-    //change
-    firebase
-      .database()
-      .ref("/users/" + uid)
-      .push({
-        test: "testing",
-      });
-  } else {
-    // No user is signed in.
-  }
-});
-
 function writeUserData(e) {
   e.preventDefault();
   console.log("added gratitude entry");
