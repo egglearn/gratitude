@@ -117,6 +117,8 @@ function googleSignOut() {
     .signOut()
     .then(() => {
       // Sign-out successful.
+      gratitudeList.textContent = " ";
+
       console.log("sign out successful");
     })
     .catch((error) => {
