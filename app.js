@@ -101,7 +101,7 @@ firebase.auth().onAuthStateChanged(function (user) {
 
     firebase
       .database()
-      .ref("users/" + uid)
+      .ref("users/")
       .on("value", function (snapshot) {
         gratitudeList.textContent = " ";
         snapshot.forEach(function (childSnapshot) {
