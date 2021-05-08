@@ -83,7 +83,7 @@ firebase.auth().onAuthStateChanged(function (user) {
     let uid = user.uid;
     console.log(uid);
     // User is signed in.
-
+    //change
     firebase
       .database()
       .ref("/users/" + uid)
