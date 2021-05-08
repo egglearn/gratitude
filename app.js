@@ -76,6 +76,22 @@ firebase.auth().onAuthStateChanged(function (user) {
   } else {
     // No user is signed in.
   }
+
+  function writeUserData(e) {
+    e.preventDefault();
+    console.log("added gratitude entry");
+    let data = gratitudeInput.value;
+
+    firebase
+      .database()
+      .ref("users/" + uid + "gratitude")
+      .push({
+        gratitude: data,
+        test: JSON.stringify(date),
+      });
+
+    gratitudeInput.value = " ";
+  }
 });
 
 function googleSignOut() {
@@ -96,18 +112,18 @@ function googleSignOut() {
 signIn.addEventListener("click", googleSignIn);
 signOut.addEventListener("click", googleSignOut);
 
-function writeUserData(e) {
-  e.preventDefault();
-  console.log("added gratitude entry");
-  let data = gratitudeInput.value;
+// function writeUserData(e) {
+//   e.preventDefault();
+//   console.log("added gratitude entry");
+//   let data = gratitudeInput.value;
 
-  gratitudeRef.push({
-    gratitude: data,
-    test: JSON.stringify(date),
-  });
+//   gratitudeRef.push({
+//     gratitude: data,
+//     test: JSON.stringify(date),
+//   });
 
-  gratitudeInput.value = " ";
-}
+//   gratitudeInput.value = " ";
+// }
 
 function reader(e) {
   e.preventDefault();
