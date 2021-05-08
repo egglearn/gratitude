@@ -140,5 +140,5 @@ function reader(e) {
   });
 }
 
-addGratitude.addEventListener("click", writeUserData);
+//addGratitude.addEventListener("click", writeUserData);
 gratitudeBtn.addEventListener("click", reader);
