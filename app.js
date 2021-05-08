@@ -93,6 +93,26 @@ firebase.auth().onAuthStateChanged(function (user) {
 
     gratitudeInput.value = " ";
   }
+
+  gratitudeBtn.addEventListener("click", reader);
+
+  function reader(e) {
+    e.preventDefault();
+
+    firebase
+      .database()
+      .ref("users/" + uid)
+      .on("value", function (snapshot) {
+        gratitudeList.textContent = " ";
+        snapshot.forEach(function (childSnapshot) {
+          let datas = childSnapshot.val().gratitude;
+          console.log(gratitudeList);
+          let p = document.createElement("p");
+          p.textContent = datas;
+          gratitudeList.appendChild(p);
+        });
+      });
+  }
 });
 
 function googleSignOut() {
@@ -126,19 +146,19 @@ signOut.addEventListener("click", googleSignOut);
 //   gratitudeInput.value = " ";
 // }
 
-function reader(e) {
-  e.preventDefault();
+// gratitudeBtn.addEventListener("click", reader);
 
-  gratitudeRef.on("value", function (snapshot) {
-    gratitudeList.textContent = " ";
-    snapshot.forEach(function (childSnapshot) {
-      let datas = childSnapshot.val().gratitude;
-      console.log(gratitudeList);
-      let p = document.createElement("p");
-      p.textContent = datas;
-      gratitudeList.appendChild(p);
-    });
-  });
-}
+// function reader(e) {
+//   e.preventDefault();
 
-gratitudeBtn.addEventListener("click", reader);
+//   gratitudeRef.on("value", function (snapshot) {
+//     gratitudeList.textContent = " ";
+//     snapshot.forEach(function (childSnapshot) {
+//       let datas = childSnapshot.val().gratitude;
+//       console.log(gratitudeList);
+//       let p = document.createElement("p");
+//       p.textContent = datas;
+//       gratitudeList.appendChild(p);
+//     });
+//   });
+// }
