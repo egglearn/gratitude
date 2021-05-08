@@ -125,10 +125,11 @@ function googleSignOut() {
       // An error happened.
     });
   // [END auth_sign_out]
+
+  signOut.addEventListener("click", googleSignOut);
 }
 
 signIn.addEventListener("click", googleSignIn);
-signOut.addEventListener("click", googleSignOut);
 
 // function writeUserData(e) {
 //   e.preventDefault();
