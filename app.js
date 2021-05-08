@@ -60,17 +60,22 @@ function googleSignIn() {
     });
 }
 
-var user = firebase.auth().currentUser;
+firebase.auth().onAuthStateChanged(function (user) {
+  if (user) {
+    // User is signed in.
 
-if (user != null) {
-  uid = user.uid;
-  firebase
-    .database()
-    .ref("/users/" + uid)
-    .push({
-      test: "testing",
-    });
-}
+    firebase
+      .database()
+      .ref("users/" + uid)
+      .set({
+        uid: uid,
+        // email: user.email
+      });
+    console.log("working");
+  } else {
+    // No user is signed in.
+  }
+});
 
 function googleSignOut() {
   // [START auth_sign_out]
