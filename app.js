@@ -11,7 +11,7 @@ var firebaseConfig = {
 
 var provider = new firebase.auth.GoogleAuthProvider();
 firebase.initializeApp(firebaseConfig);
-
+//d
 let date = new Date();
 let htmlDate = document.getElementById("date");
 htmlDate.textContent = date;
@@ -32,6 +32,51 @@ themeChange.addEventListener("click", function () {
   container.style.backgroundImage =
     "url(https://images.unsplash.com/photo-1485201543483-f06c8d2a8fb4?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=675&q=80)";
 });
+const signIn = document.getElementById("signIn");
+const signOut = document.getElementById("signOut");
+
+function googleSignIn() {
+  //var provider = new firebase.auth.GoogleAuthProvider();
+  firebase
+    .auth()
+    .signInWithPopup(provider)
+    .then(function (result) {
+      console.log("i ran");
+      // This gives you a Google Access Token. You can use it to access the Google API.
+      var token = result.credential.accessToken;
+      // The signed-in user info.
+      var user = result.user;
+      // ...
+    })
+    .catch(function (error) {
+      // Handle Errors here.
+      var errorCode = error.code;
+      var errorMessage = error.message;
+      // The email of the user's account used.
+      var email = error.email;
+      // The firebase.auth.AuthCredential type that was used.
+      var credential = error.credential;
+      // ...
+    });
+}
+
+function googleSignOut() {
+  // [START auth_sign_out]
+  firebase
+    .auth()
+    .signOut()
+    .then(() => {
+      // Sign-out successful.
+      console.log("sign out successful");
+    })
+    .catch((error) => {
+      // An error happened.
+    });
+  // [END auth_sign_out]
+}
+
+signIn.addEventListener("click", googleSignIn);
+signOut.addEventListener("click", googleSignOut);
 
 function writeUserData(e) {
   e.preventDefault();
