@@ -60,6 +60,18 @@ function googleSignIn() {
     });
 }
 
+var user = firebase.auth().currentUser;
+
+if (user != null) {
+  uid = user.uid;
+  firebase
+    .database()
+    .ref("/users/" + uid)
+    .push({
+      test: "testing",
+    });
+}
+
 function googleSignOut() {
   // [START auth_sign_out]
   firebase
