@@ -65,13 +65,8 @@ firebase.auth().onAuthStateChanged(function (user) {
   if (user) {
     // User is signed in.
 
-    firebase
-      .database()
-      .ref("users/" + uid)
-      .set({
-        uid: uid,
-        // email: user.email
-      });
+    firebase.database().ref("users/" + uid);
+
     console.log("working");
   } else {
     // No user is signed in.
