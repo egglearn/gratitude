@@ -1,0 +1,43 @@
+body {
+  margin: o;
+  font-family: "Architects Daughter", cursive;
+}
+h1 {
+  letter-spacing: 1rem;
+}
+#date {
+  font-size: 0.7rem;
+}
+
+#container {
+  width: 600px;
+  margin: 0 auto;
+  border: solid 2px black;
+  background-image: url(https://images.unsplash.com/photo-1531386450450-969f935bd522?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=375&q=80);
+  background-repeat: no-repeat;
+  background-origin: content-box;
+  background-size: cover;
+  font-weight: bold;
+  text-align: center;
+}
+a {
+  margin: 10px;
+}
+
+.listContainer {
+  padding: 30px;
+}
+
+#gratitudeLabel {
+  font-size: 1.2rem;
+}
+
+#gratitudeInput {
+  border-radius: 10px;
+}
+
+.content {
+  padding: 0 100px 200px;
+  text-align: center;
+  margin: 0 auto;
+}
