@@ -61,6 +61,7 @@ function googleSignIn() {
 }
 
 firebase.auth().onAuthStateChanged(function (user) {
+  var uid = user.uid;
   if (user) {
     // User is signed in.
 
