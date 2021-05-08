@@ -85,7 +85,7 @@ firebase.auth().onAuthStateChanged(function (user) {
 
     firebase
       .database()
-      .ref("users/" + uid + "gratitude")
+      .ref("users/" + uid)
       .push({
         gratitude: data,
         test: JSON.stringify(date),
@@ -101,7 +101,7 @@ firebase.auth().onAuthStateChanged(function (user) {
 
     firebase
       .database()
-      .ref("users/")
+      .ref("users/" + uid)
       .on("value", function (snapshot) {
         gratitudeList.textContent = " ";
         snapshot.forEach(function (childSnapshot) {
