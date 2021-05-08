@@ -75,18 +75,23 @@ firebase.auth().onAuthStateChanged(function (user) {
   addGratitude.addEventListener("click", writeUserData);
   function writeUserData(e) {
     e.preventDefault();
-    console.log("added gratitude entry");
-    let data = gratitudeInput.value;
 
-    firebase
-      .database()
-      .ref("users/" + uid)
-      .push({
-        gratitude: data,
-        test: JSON.stringify(date),
-      });
+    if (user) {
+      console.log("added gratitude entry");
+      let data = gratitudeInput.value;
 
-    gratitudeInput.value = " ";
+      firebase
+        .database()
+        .ref("users/" + uid)
+        .push({
+          gratitude: data,
+          test: JSON.stringify(date),
+        });
+
+      gratitudeInput.value = " ";
+    } else {
+      alert("sign in to save data");
+    }
   }
 
   gratitudeBtn.addEventListener("click", reader);
