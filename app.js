@@ -91,22 +91,25 @@ firebase.auth().onAuthStateChanged(function (user) {
 
   gratitudeBtn.addEventListener("click", reader);
 
-  function reader(e) {
-    e.preventDefault();
+  //only want reader to work if someone is signed in
+  if (user) {
+    function reader(e) {
+      e.preventDefault();
 
-    firebase
-      .database()
-      .ref("users/" + uid)
-      .on("value", function (snapshot) {
-        gratitudeList.textContent = " ";
-        snapshot.forEach(function (childSnapshot) {
-          let datas = childSnapshot.val().gratitude;
-          console.log(gratitudeList);
-          let p = document.createElement("p");
-          p.textContent = datas;
-          gratitudeList.appendChild(p);
+      firebase
+        .database()
+        .ref("users/" + uid)
+        .on("value", function (snapshot) {
+          gratitudeList.textContent = " ";
+          snapshot.forEach(function (childSnapshot) {
+            let datas = childSnapshot.val().gratitude;
+            console.log(gratitudeList);
+            let p = document.createElement("p");
+            p.textContent = datas;
+            gratitudeList.appendChild(p);
+          });
         });
-      });
+    }
   }
 });
 
