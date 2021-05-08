@@ -119,45 +119,26 @@ firebase.auth().onAuthStateChanged(function (user) {
         });
     }
   }
-
-  signOut.addEventListener("click", googleSignOut);
-
-  function googleSignOut() {
-    gratitudeList.textContent = " ";
-    // [START auth_sign_out]
-    firebase
-      .auth()
-      .signOut()
-      .then(() => {
-        // Sign-out successful.
-
-        console.log("sign out successful");
-      })
-      .catch((error) => {
-        // An error happened.
-      });
-    // [END auth_sign_out]
-  }
 });
 
-// signOut.addEventListener("click", googleSignOut);
+signOut.addEventListener("click", googleSignOut);
 
-// function googleSignOut() {
-//   gratitudeList.textContent = " ";
-//   // [START auth_sign_out]
-//   firebase
-//     .auth()
-//     .signOut()
-//     .then(() => {
-//       // Sign-out successful.
+function googleSignOut() {
+  gratitudeList.textContent = " ";
+  // [START auth_sign_out]
+  firebase
+    .auth()
+    .signOut()
+    .then(() => {
+      // Sign-out successful.
 
-//       console.log("sign out successful");
-//     })
-//     .catch((error) => {
-//       // An error happened.
-//     });
-//   // [END auth_sign_out]
-// }
+      console.log("sign out successful");
+    })
+    .catch((error) => {
+      // An error happened.
+    });
+  // [END auth_sign_out]
+}
 
 signIn.addEventListener("click", googleSignIn);
 
