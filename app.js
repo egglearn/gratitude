@@ -114,6 +114,8 @@ firebase.auth().onAuthStateChanged(function (user) {
           gratitude: data,
           test: JSON.stringify(date),
         });
+
+      gratitudeBtn.addEventListener("click", reader);
     }
   }
 
