@@ -92,7 +92,19 @@ firebase.auth().onAuthStateChanged(function (user) {
 
       gratitudeInput.value = " ";
     } else {
-      alert("sign in to save data");
+      //   alert("sign in to save data");
+
+      firebase
+        .auth()
+        .signInAnonymously()
+        .then(() => {
+          // Signed in..
+        })
+        .catch((error) => {
+          var errorCode = error.code;
+          var errorMessage = error.message;
+          // ...
+        });
     }
   }
 

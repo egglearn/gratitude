@@ -3,6 +3,7 @@
         <link href="./style.css" rel="stylesheet">
         <link rel="preconnect" href="https://fonts.gstatic.com">
 <link href="https://fonts.googleapis.com/css2?family=Architects+Daughter&display=swap" rel="stylesheet">
+<meta name="viewport" content="width=device-width, initial-scale=1">
     </head>
     <body>
         
@@ -20,23 +21,43 @@
                     </li>
                 </ul>
             </div>
-              <h1> Gratitude Journal </h1>
-            <div class="content">
+
+                <div>
+              <h1> Gratitude Journal</h1>
+            </div>
+
+                
+        <div id="gratitudeEntry">
         <p id="date"></p>
-         <label id="gratitudeLabel">I am grateful for ? </label>
+         <label id="gratitudeLabel">I am grateful for ?</label>
+        </br>
          <input id="gratitudeInput"></input>
          <button id="addGratitude">Save</button>
-         
-         <div class="listContainer">
-         <h2>List of Gratitude</h2>
-         <h3>list of everything you have been grateful for</h3>
-         <button id="showGratitudeList">show list</button>
-         <div id="gratitudeList">
-         </div>
         </div>
-         </div>
+
+
+
+
+         <div class="listContainer">
+            <h2>List of Gratitude</h2>
+            <h3>list of everything you have been grateful for</h3>
+            <button id="showGratitudeList">show list</button>
+            <div id="gratitudeList">
+            </div>
+           </div>
+
+
+
+
+
+        </div>
          
-         </div>
+
+
+   
+
+         
+
          <script src="https://www.gstatic.com/firebasejs/8.3.3/firebase.js"> </script>
        <script src="./app.js"></script> 
     </body>
