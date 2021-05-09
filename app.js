@@ -93,29 +93,6 @@ firebase.auth().onAuthStateChanged(function (user) {
       gratitudeInput.value = " ";
     } else {
       //   alert("sign in to save data");
-
-      firebase
-        .auth()
-        .signInAnonymously()
-        .then(() => {
-          console.log("anonymoussign in");
-          // Signed in..
-        })
-        .catch((error) => {
-          var errorCode = error.code;
-          var errorMessage = error.message;
-          // ...
-        });
-
-      firebase
-        .database()
-        .ref("users/" + uid)
-        .push({
-          gratitude: data,
-          test: JSON.stringify(date),
-        });
-
-      gratitudeBtn.addEventListener("click", reader);
     }
   }
 
@@ -195,3 +172,19 @@ signIn.addEventListener("click", googleSignIn);
 //     });
 //   });
 // }
+
+function anonymous() {
+  firebase
+    .auth()
+    .signInAnonymously()
+    .then(() => {
+      console.log("anonymoussign in");
+      // Signed in..
+    })
+    .catch((error) => {
+      var errorCode = error.code;
+      var errorMessage = error.message;
+      // ...
+    });
+}
+gratitudeBtn.addEventListener("click", anonymous);
