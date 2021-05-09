@@ -73,7 +73,25 @@ firebase.auth().onAuthStateChanged(function (user) {
     // No user is signed in.
   }
 
-  writeUserData();
+  //initil write on auth because the event listener below listens for a click and here the click has already happened in anonymous sign in
+  function write() {
+    if (user) {
+      console.log("added gratitude entry");
+      let data = gratitudeInput.value;
+
+      firebase
+        .database()
+        .ref("users/" + uid)
+        .push({
+          gratitude: data,
+          test: JSON.stringify(date),
+        });
+
+      gratitudeInput.value = " ";
+    } else {
+      //   alert("sign in to save data");
+    }
+  }
 
   addGratitude.addEventListener("click", writeUserData);
   function writeUserData(e) {
