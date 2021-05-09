@@ -26,12 +26,12 @@ let container = document.getElementById("container");
 let gratitudeList = document.getElementById("gratitudeList");
 let themeChange = document.getElementById("themeChange");
 
-themeChange.addEventListener("click", function () {
-  console.log("shoudl of changed");
+// themeChange.addEventListener("click", function () {
+//   console.log("shoudl of changed");
 
-  container.style.backgroundImage =
-    "url(https://images.unsplash.com/photo-1485201543483-f06c8d2a8fb4?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=675&q=80)";
-});
+//   container.style.backgroundImage =
+//     "url(https://images.unsplash.com/photo-1485201543483-f06c8d2a8fb4?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=675&q=80)";
+// });
 const signIn = document.getElementById("signIn");
 const signOut = document.getElementById("signOut");
 
