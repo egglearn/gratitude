@@ -93,6 +93,8 @@ firebase.auth().onAuthStateChanged(function (user) {
     }
   }
 
+  write();
+
   addGratitude.addEventListener("click", writeUserData);
   function writeUserData(e) {
     e.preventDefault();
