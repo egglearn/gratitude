@@ -18,6 +18,7 @@ htmlDate.textContent = date;
 let gratitudeInput = document.getElementById("gratitudeInput");
 let addGratitude = document.getElementById("addGratitude");
 let gratitudeBtn = document.getElementById("showGratitudeList");
+let hideListBtn = document.getElementById("hideGratitudeList");
 console.log(date);
 
 var gratitudeRef = firebase.database().ref("gratitude");
@@ -187,4 +188,7 @@ function anonymous() {
       // ...
     });
 }
-gratitudeBtn.addEventListener("click", anonymous);
+addGratitude.addEventListener("click", anonymous);
+hideListBtn.addEventListener("click", function () {
+  gratitudeList.textContent = " ";
+});
