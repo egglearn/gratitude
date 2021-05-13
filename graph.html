@@ -1,12 +1,76 @@
 <!DOCTYPE html>
 
-<html>
-  <body>
-    <a href="index.html">go back</a>
-    <div id="my_dataviz"></div>
 
-    <script src="https://www.gstatic.com/firebasejs/8.3.3/firebase.js"></script>
-    <script src="https://d3js.org/d3.v4.min.js"></script>
-    <script src="./app.js"></script>
-  </body>
-</html>
+<html>
+    <head>
+        <link href="./style.css" rel="stylesheet">
+        <link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Architects+Daughter&display=swap" rel="stylesheet">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+    </head>
+    <body>
+        <div id="my_dataviz"></div>
+        
+        
+        
+        
+        
+        
+        <div id="container">
+            <div id="nav">
+                <ul>
+                    <li>
+                     <!-- <a id="themeChange" href="#">Change Theme</a> -->
+                     <a id="signIn" href="#">Sign In</a>
+                     <a id="signOut" href="#">Sign Out</a>
+
+                    </li>
+                    <li>
+                        <a href="./graph.html">graph</a>
+                    </li>
+                </ul>
+            </div>
+
+                <div>
+              <h1> Gratitude Journal</h1>
+            </div>
+
+                
+        <div id="gratitudeEntry">
+        <p id="date"></p>
+         <label id="gratitudeLabel">I am grateful for ?</label>
+        </br>
+         <input id="gratitudeInput"></input>
+         <button id="addGratitude">Save</button>
+        </div>
+
+
+
+
+         <div class="listContainer">
+            <h2>List of Gratitude</h2>
+            <h3>list of everything you have been grateful for</h3>
+            <button id="showGratitudeList">show list</button>
+            <button id="hideGratitudeList">hide list</button>
+            <div id="gratitudeList">
+            </div>
+           </div>
+
+
+
+
+
+        </div>
+         
+
+
+   
+
+         
+
+         <script src="https://www.gstatic.com/firebasejs/8.3.3/firebase.js"> </script>
+       <script src="./app.js"></script> 
+       <script src = "https://d3js.org/d3.v4.min.js"></script>
+
+    </body>
+</html
