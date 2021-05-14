@@ -1,3 +1,4 @@
+let graphData;
 if (location.pathname === "/index.html") {
   var firebaseConfig = {
     apiKey: "AIzaSyDpJUKeG8a6eNrhXtd9-EsNuH0pVH9Qjhw",
@@ -14,7 +15,7 @@ if (location.pathname === "/index.html") {
   firebase.initializeApp(firebaseConfig);
   //d
   let date = new Date();
-  let graphData;
+
   let htmlDate = document.getElementById("date");
   htmlDate.textContent = date;
   let gratitudeInput = document.getElementById("gratitudeInput");
@@ -218,6 +219,6 @@ if (location.pathname === "/index.html") {
   hideListBtn.addEventListener("click", function () {
     gratitudeList.textContent = " ";
   });
-
-  export { graphData };
 }
+
+export { graphData };
