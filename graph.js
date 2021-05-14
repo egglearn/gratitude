@@ -1,6 +1,6 @@
 //d3 test
 
-import { graphData } from "./app";
+import { graphData } from "./app.js";
 
 // set the dimensions and margins of the graph
 var width = 650;
