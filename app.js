@@ -17,7 +17,7 @@ firebase.initializeApp(firebaseConfig);
 let date = new Date();
 
 let htmlDate = document.getElementById("date");
-htmlDate.textContent = date;
+//htmlDate.textContent = date;
 let gratitudeInput = document.getElementById("gratitudeInput");
 let addGratitude = document.getElementById("addGratitude");
 let gratitudeBtn = document.getElementById("showGratitudeList");
