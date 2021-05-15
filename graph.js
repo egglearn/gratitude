@@ -44,7 +44,7 @@ var simulation = d3
 
 // Apply these forces to the nodes and update their positions.
 // Once the force algorithm is happy with positions ('alpha' value is low enough), simulations will stop.
-simulation.nodes(data).on("tick", function (d) {
+simulation.nodes(graphData).on("tick", function (d) {
   node
     .attr("cx", function (d) {
       return d.x;
