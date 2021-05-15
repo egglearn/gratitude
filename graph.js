@@ -71,7 +71,7 @@ simulation.nodes(graphData).on("tick", function (d) {
 
 var user = firebase.auth().currentUser;
 
-if (user) {
+if (user != null) {
   var uid = user.uid;
   if (uid) {
     console.log("true");
