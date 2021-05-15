@@ -14,31 +14,6 @@ firebase.initializeApp(firebaseConfig);
 
 var gratitudeRef = firebase.database().ref("gratitude");
 
-function googleSignIn() {
-  //var provider = new firebase.auth.GoogleAuthProvider();
-  firebase
-    .auth()
-    .signInWithPopup(provider)
-    .then(function (result) {
-      console.log("i ran");
-      // This gives you a Google Access Token. You can use it to access the Google API.
-      var token = result.credential.accessToken;
-      // The signed-in user info.
-      var user = result.user;
-      // ...
-    })
-    .catch(function (error) {
-      // Handle Errors here.
-      var errorCode = error.code;
-      var errorMessage = error.message;
-      // The email of the user's account used.
-      var email = error.email;
-      // The firebase.auth.AuthCredential type that was used.
-      var credential = error.credential;
-      // ...
-    });
-}
-
 firebase.auth().onAuthStateChanged(function (user) {
   let graphData;
   var uid = user.uid;
@@ -52,73 +27,16 @@ firebase.auth().onAuthStateChanged(function (user) {
     // No user is signed in.
   }
 
-  //initil write on auth because the event listener below listens for a click and here the click has already happened in anonymous sign in
-  // function write() {
-  //   if (user) {
-  //     console.log("added gratitude entry");
-  //     let data = gratitudeInput.value;
-
-  //     firebase
-  //       .database()
-  //       .ref("users/" + uid)
-  //       .push({
-  //         gratitude: data,
-  //         test: JSON.stringify(date),
-  //       });
-
-  //     gratitudeInput.value = " ";
-  //   } else {
-  //     //   alert("sign in to save data");
-  //   }
-  // }
-
-  // write();
-
-  // addGratitude.addEventListener("click", writeUserData);
-  // function writeUserData(e) {
-  //   e.preventDefault();
-
-  //   console.log(`i am the ${user}`);
-
-  //   if (user) {
-  //     console.log("added gratitude entry");
-  //     let data = gratitudeInput.value;
-
-  //     firebase
-  //       .database()
-  //       .ref("users/" + uid)
-  //       .push({
-  //         gratitude: data,
-  //         test: JSON.stringify(date),
-  //       });
-
-  //     gratitudeInput.value = " ";
-  //   } else {
-  //     //   alert("sign in to save data");
-  //   }
-  // }
-
-  // gratitudeBtn.addEventListener("click", reader);
-
-  //only want reader to work if someone is signed in
-
-  function reader(e) {
-    e.preventDefault();
-
+  function reader() {
     if (user) {
       firebase
         .database()
         .ref("users/" + uid)
         .on("value", function (snapshot) {
-          gratitudeList.textContent = " ";
           snapshot.forEach(function (childSnapshot) {
             let datas = childSnapshot.val().gratitude;
             console.log(childSnapshot.val());
             graphData = [childSnapshot.val()];
-
-            let p = document.createElement("p");
-            p.textContent = datas;
-            gratitudeList.appendChild(p);
           });
         });
 
