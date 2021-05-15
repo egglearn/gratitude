@@ -1,4 +1,5 @@
 // import { graphData } from "./app.js";
+let graphData = [{ dog: "food" }];
 
 // set the dimensions and margins of the graph
 var width = 650;
