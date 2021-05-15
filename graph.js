@@ -45,11 +45,12 @@ firebase.auth().onAuthStateChanged(function (user) {
 
       // append the svg object to the body of the page
       var svg = d3
-        .select("#my_dataviz")
+        .select("#mydata")
         .append("svg")
         .attr("width", 450)
         .attr("height", 450);
 
+      console.log("this is " + ":" + svg);
       // create dummy data -> just one element per circle
 
       // Initialize the circle: all located at the center of the svg area
