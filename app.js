@@ -220,4 +220,4 @@ hideListBtn.addEventListener("click", function () {
   gratitudeList.textContent = " ";
 });
 
-// export { graphData };
+export { graphData };
