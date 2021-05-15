@@ -15,17 +15,7 @@ firebase.initializeApp(firebaseConfig);
 var gratitudeRef = firebase.database().ref("gratitude");
 
 firebase.auth().onAuthStateChanged(function (user) {
-  let graphData;
   var uid = user.uid;
-  if (user) {
-    // User is signed in.
-
-    firebase.database().ref("users/" + uid);
-
-    console.log("working");
-  } else {
-    // No user is signed in.
-  }
 
   function reader() {
     if (user) {
@@ -40,6 +30,7 @@ firebase.auth().onAuthStateChanged(function (user) {
           });
         });
 
+      let graphData;
       var width = 650;
       var height = 650;
 
