@@ -78,6 +78,7 @@ if (user != null) {
   }
   // User is signed in.
 } else {
+  console.log("dam");
   // No user is signed in.
 }
 
