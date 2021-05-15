@@ -52,3 +52,100 @@ simulation.nodes(data).on("tick", function (d) {
       return d.y;
     });
 });
+
+var user = firebase.auth().currentUser;
+
+if (user) {
+  var uid = user.uid;
+  if (uid) {
+    console.log("true");
+  }
+  // User is signed in.
+} else {
+  // No user is signed in.
+}
+
+firebase.auth().onAuthStateChanged(function (user) {
+  var uid = user.uid;
+  if (user) {
+    // User is signed in.
+
+    firebase.database().ref("users/" + uid);
+
+    console.log("working");
+  } else {
+    // No user is signed in.
+  }
+
+  //initil write on auth because the event listener below listens for a click and here the click has already happened in anonymous sign in
+  function write() {
+    if (user) {
+      console.log("added gratitude entry");
+      let data = gratitudeInput.value;
+
+      firebase
+        .database()
+        .ref("users/" + uid)
+        .push({
+          gratitude: data,
+          test: JSON.stringify(date),
+        });
+
+      gratitudeInput.value = " ";
+    } else {
+      //   alert("sign in to save data");
+    }
+  }
+
+  write();
+
+  addGratitude.addEventListener("click", writeUserData);
+  function writeUserData(e) {
+    e.preventDefault();
+
+    console.log(`i am the ${user}`);
+
+    if (user) {
+      console.log("added gratitude entry");
+      let data = gratitudeInput.value;
+
+      firebase
+        .database()
+        .ref("users/" + uid)
+        .push({
+          gratitude: data,
+          test: JSON.stringify(date),
+        });
+
+      gratitudeInput.value = " ";
+    } else {
+      //   alert("sign in to save data");
+    }
+  }
+
+  gratitudeBtn.addEventListener("click", reader);
+
+  //only want reader to work if someone is signed in
+
+  function reader(e) {
+    e.preventDefault();
+
+    if (user) {
+      firebase
+        .database()
+        .ref("users/" + uid)
+        .on("value", function (snapshot) {
+          gratitudeList.textContent = " ";
+          snapshot.forEach(function (childSnapshot) {
+            let datas = childSnapshot.val().gratitude;
+            console.log(childSnapshot.val());
+            graphData = [childSnapshot.val()];
+
+            let p = document.createElement("p");
+            p.textContent = datas;
+            gratitudeList.appendChild(p);
+          });
+        });
+    }
+  }
+});
