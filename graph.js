@@ -32,8 +32,8 @@ firebase.auth().onAuthStateChanged(function (user) {
         var svg = d3
           .select("#mydata")
           .append("svg")
-          .attr("width", 100)
-          .attr("height", 100);
+          .attr("width", 300)
+          .attr("height", 300);
 
         // create dummy data -> just one element per circle
 
