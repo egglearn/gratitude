@@ -1,5 +1,3 @@
-// import { graphData } from "./app.js";
-
 var firebaseConfig = {
   apiKey: "AIzaSyDpJUKeG8a6eNrhXtd9-EsNuH0pVH9Qjhw",
   authDomain: "gratitude-4ccbd.firebaseapp.com",
@@ -13,7 +11,6 @@ var firebaseConfig = {
 
 var provider = new firebase.auth.GoogleAuthProvider();
 firebase.initializeApp(firebaseConfig);
-//
 
 firebase.auth().onAuthStateChanged(function (user) {
   var uid = user.uid;
