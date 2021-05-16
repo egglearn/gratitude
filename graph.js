@@ -87,4 +87,4 @@ firebase.auth().onAuthStateChanged(function (user) {
     });
 });
 
-console.log(` i am ${arr}`);
+console.log(arr);

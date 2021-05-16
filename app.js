@@ -102,8 +102,6 @@ firebase.auth().onAuthStateChanged(function (user) {
   function writeUserData(e) {
     e.preventDefault();
 
-    console.log(`i am the ${user}`);
-
     if (user) {
       console.log("added gratitude entry");
       let data = gratitudeInput.value;
