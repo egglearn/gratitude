@@ -25,15 +25,15 @@ firebase.auth().onAuthStateChanged(function (user) {
         let graphData = [childSnapshot.val()];
 
         //d3
-        var width = 650;
-        var height = 650;
+        var width = 300;
+        var height = 300;
 
         // append the svg object to the body of the page
         var svg = d3
           .select("#mydata")
           .append("svg")
-          .attr("width", 450)
-          .attr("height", 450);
+          .attr("width", 400)
+          .attr("height", 400);
 
         // create dummy data -> just one element per circle
 
