@@ -44,7 +44,7 @@ firebase.auth().onAuthStateChanged(function (user) {
           .data(graphData)
           .enter()
           .append("circle")
-          .attr("r", 25)
+          .attr("r", 10)
           .attr("cx", width / 2)
           .attr("cy", height / 2)
           .style("fill", "#69b3a2")
