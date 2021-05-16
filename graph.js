@@ -45,7 +45,7 @@ firebase.auth().onAuthStateChanged(function (user) {
   var node = svg
     .append("g")
     .selectAll("circle")
-    .data(graphData)
+    .data(arr)
     .enter()
     .append("circle")
     .attr("r", 10)
@@ -74,7 +74,7 @@ firebase.auth().onAuthStateChanged(function (user) {
 
   // Apply these forces to the nodes and update their positions.
   // Once the force algorithm is happy with positions ('alpha' value is low enough), simulations will stop.
-  simulation.nodes(graphData).on("tick", function (d) {
+  simulation.nodes(arr).on("tick", function (d) {
     node
       .attr("cx", function (d) {
         return d.x;
