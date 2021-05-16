@@ -13,6 +13,7 @@ var firebaseConfig = {
 
 var provider = new firebase.auth.GoogleAuthProvider();
 firebase.initializeApp(firebaseConfig);
+//
 
 firebase.auth().onAuthStateChanged(function (user) {
   var uid = user.uid;
