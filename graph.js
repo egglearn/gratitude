@@ -23,7 +23,7 @@ firebase.auth().onAuthStateChanged(function (user) {
       snapshot.forEach(function (childSnapshot) {
         let datas = childSnapshot.val().gratitude;
         console.log(datas);
-        arr = [childSnapshot.val()];
+        arr.push(childSnapshot.val().gratitude);
       });
     });
 
