@@ -24,7 +24,7 @@ firebase.auth().onAuthStateChanged(function (user) {
         let datas = childSnapshot.val().gratitude;
         console.log(datas);
         arr.push(childSnapshot.val());
-        let graphData = [childSnapshot.val()];
+        let graphData = arr;
 
         //d3
         var width = 300;
