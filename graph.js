@@ -22,7 +22,7 @@ firebase.auth().onAuthStateChanged(function (user) {
       snapshot.forEach(function (childSnapshot) {
         let datas = childSnapshot.val().gratitude;
         console.log(datas);
-        let graphData = [childSnapshot.val().gratitude];
+        let graphData = [JSON.parse(childSnapshot.val())];
 
         //d3
         var width = 300;
