@@ -27,12 +27,12 @@ firebase.auth().onAuthStateChanged(function (user) {
       });
     });
 
-  d3();
+  d();
 });
 
 //d3
 
-function d3() {
+function d() {
   var width = 300;
   var height = 300;
 
