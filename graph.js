@@ -9,6 +9,7 @@ var firebaseConfig = {
   appId: "1:367578256139:web:bc98ea94280d6e8b0a880e",
 };
 
+let arr = [];
 var provider = new firebase.auth.GoogleAuthProvider();
 firebase.initializeApp(firebaseConfig);
 
@@ -22,7 +23,8 @@ firebase.auth().onAuthStateChanged(function (user) {
       snapshot.forEach(function (childSnapshot) {
         let datas = childSnapshot.val().gratitude;
         console.log(datas);
-        let graphData = [JSON.parse(childSnapshot.val())];
+        arr.push(childSnapshot.val());
+        let graphData = [childSnapshot.val()];
 
         //d3
         var width = 300;
@@ -84,3 +86,5 @@ firebase.auth().onAuthStateChanged(function (user) {
       });
     });
 });
+
+console.log(` i am ${arr}`);
