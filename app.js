@@ -80,17 +80,22 @@ firebase.auth().onAuthStateChanged(function (user) {
   function write() {
     if (user) {
       console.log("added gratitude entry");
-      let data = gratitudeInput.value;
 
-      firebase
-        .database()
-        .ref("users/" + uid)
-        .push({
-          gratitude: data,
-          test: JSON.stringify(date),
-        });
+      if (gratitudeInput.value != "") {
+        let data = gratitudeInput.value;
 
-      gratitudeInput.value = " ";
+        firebase
+          .database()
+          .ref("users/" + uid)
+          .push({
+            gratitude: data,
+            test: JSON.stringify(date),
+          });
+
+        gratitudeInput.value = " ";
+      } else {
+        ("nothing");
+      }
     } else {
       //   alert("sign in to save data");
     }
@@ -102,21 +107,27 @@ firebase.auth().onAuthStateChanged(function (user) {
   function writeUserData(e) {
     e.preventDefault();
 
+    //gratitude.input.value is not == empty
     if (user) {
       console.log("added gratitude entry");
-      let data = gratitudeInput.value;
 
-      firebase
-        .database()
-        .ref("users/" + uid)
-        .push({
-          gratitude: data,
-          test: JSON.stringify(date),
-        });
+      if (gratitudeInput.value != "") {
+        let data = gratitudeInput.value;
 
-      gratitudeInput.value = " ";
+        firebase
+          .database()
+          .ref("users/" + uid)
+          .push({
+            gratitude: data,
+            test: JSON.stringify(date),
+          });
+
+        gratitudeInput.value = " ";
+      } else {
+        alert("sign in to save data");
+      }
     } else {
-      //   alert("sign in to save data");
+      ("nothing");
     }
   }
 
