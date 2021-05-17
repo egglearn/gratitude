@@ -73,7 +73,7 @@ firebase.auth().onAuthStateChanged(function (user) {
               .x(width / 2)
               .y(height / 2)
           ) // Attraction to the center of the svg area
-          .force("charge", d3.forceManyBody().strength(0.5)) // Nodes are attracted one each other of value is > 0
+          .force("charge", d3.forceManyBody().strength(90)) // Nodes are attracted one each other of value is > 0
           .force(
             "collide",
             d3.forceCollide().strength(0.01).radius(30).iterations(1)
