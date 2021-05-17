@@ -81,7 +81,7 @@ firebase.auth().onAuthStateChanged(function (user) {
     if (user) {
       console.log("added gratitude entry");
 
-      if (gratitudeInput.value != "") {
+      if (gratitudeInput.value != " ") {
         let data = gratitudeInput.value;
 
         firebase
