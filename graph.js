@@ -24,7 +24,7 @@ firebase.auth().onAuthStateChanged(function (user) {
       .on("value", function (snapshot) {
         console.log(snapshot);
         console.log("testing");
-        console.log(childSnapshot);
+        console.log(childSnapshot.val());
         snapshot.forEach(function (childSnapshot) {
           let datas = childSnapshot.val().gratitude;
           graphData = childSnapshot.val();
