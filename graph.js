@@ -24,7 +24,7 @@ firebase.auth().onAuthStateChanged(function (user) {
       .on("value", function (snapshot) {
         snapshot.forEach(function (childSnapshot) {
           let datas = childSnapshot.val().gratitude;
-          graphData = [JSON.parse(childSnapshot.val())];
+          graphData = childSnapshot.val();
           console.log(graphData);
 
           //d3
@@ -34,6 +34,7 @@ firebase.auth().onAuthStateChanged(function (user) {
       });
 
     //d3
+    graphData = [JSON.parse(graphData)];
     var width = 300;
     var height = 300;
 
