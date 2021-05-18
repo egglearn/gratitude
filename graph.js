@@ -27,13 +27,14 @@ firebase.auth().onAuthStateChanged(function (user) {
           let test = childSnapshot.val().test;
           //dd
           graphData.push({ datas: datas, test: test });
-
+          //
           //d3
 
           //d3
         });
       });
 
+    //d
     //d3
 
     var width = 300;
