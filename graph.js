@@ -36,7 +36,6 @@ firebase.auth().onAuthStateChanged(function (user) {
 
     //d
     //d3
-
     var width = 300;
     var height = 300;
 
