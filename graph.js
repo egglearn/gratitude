@@ -22,10 +22,11 @@ firebase.auth().onAuthStateChanged(function (user) {
       .database()
       .ref("users/" + uid)
       .on("value", function (snapshot) {
+        console.log(snapshot);
         snapshot.forEach(function (childSnapshot) {
           let datas = childSnapshot.val().gratitude;
           graphData = childSnapshot.val();
-          console.log(graphData);
+          //console.log(graphData);
 
           //d3
 
