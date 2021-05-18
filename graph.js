@@ -14,29 +14,32 @@ let graphData;
 var provider = new firebase.auth.GoogleAuthProvider();
 firebase.initializeApp(firebaseConfig);
 
-firebase.auth().onAuthStateChanged(function (user) {
-  var uid = user.uid;
+function first() {
+  firebase.auth().onAuthStateChanged(function (user) {
+    var uid = user.uid;
 
-  firebase
-    .database()
-    .ref("users/" + uid)
-    .on("value", function (snapshot) {
-      snapshot.forEach(function (childSnapshot) {
-        let datas = childSnapshot.val().gratitude;
-        let graphData = [childSnapshot.val()];
-        //console.log(graphData);
+    firebase
+      .database()
+      .ref("users/" + uid)
+      .on("value", function (snapshot) {
+        snapshot.forEach(function (childSnapshot) {
+          let datas = childSnapshot.val().gratitude;
+          let graphData = [childSnapshot.val()];
+          //console.log(graphData);
 
-        //d3
+          //d3
 
-        //d3
+          //d3
+        });
       });
-    });
 
-  //d3
+    //d3
 
-  //d3
-});
+    //d3
+  });
+}
 
+first();
 console.log("me");
 console.log(graphData);
 
