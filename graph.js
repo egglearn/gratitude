@@ -9,7 +9,7 @@ var firebaseConfig = {
   appId: "1:367578256139:web:bc98ea94280d6e8b0a880e",
 };
 
-let graphData;
+let graphData = [];
 
 var provider = new firebase.auth.GoogleAuthProvider();
 firebase.initializeApp(firebaseConfig);
@@ -22,11 +22,11 @@ firebase.auth().onAuthStateChanged(function (user) {
       .database()
       .ref("users/" + uid)
       .on("value", function (snapshot) {
-        console.log(snapshot.val());
-        console.log("testing");
         snapshot.forEach(function (childSnapshot) {
           let datas = childSnapshot.val().gratitude;
-          graphData = childSnapshot.val();
+          let test = childSnapshot.val().test;
+          graphData.push({ gratitude: datas, date: test });
+          console.log(graphData);
 
           //d3
 
