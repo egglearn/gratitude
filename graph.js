@@ -1,7 +1,44 @@
-let graphData = [
-  { data: "dsflfs", test: "234242" },
-  { data: "dsflfs", test: "234242" },
-];
+var firebaseConfig = {
+  apiKey: "AIzaSyDpJUKeG8a6eNrhXtd9-EsNuH0pVH9Qjhw",
+  authDomain: "gratitude-4ccbd.firebaseapp.com",
+  databaseURL:
+    "https://gratitude-4ccbd-default-rtdb.europe-west1.firebasedatabase.app",
+  projectId: "gratitude-4ccbd",
+  storageBucket: "gratitude-4ccbd.appspot.com",
+  messagingSenderId: "367578256139",
+  appId: "1:367578256139:web:bc98ea94280d6e8b0a880e",
+};
+
+let graphData;
+
+var provider = new firebase.auth.GoogleAuthProvider();
+firebase.initializeApp(firebaseConfig);
+
+firebase.auth().onAuthStateChanged(function (user) {
+  var uid = user.uid;
+
+  firebase
+    .database()
+    .ref("users/" + uid)
+    .on("value", function (snapshot) {
+      snapshot.forEach(function (childSnapshot) {
+        let datas = childSnapshot.val().gratitude;
+        let graphData = [childSnapshot.val()];
+        //console.log(graphData);
+
+        //d3
+
+        //d3
+      });
+    });
+
+  //d3
+
+  //d3
+});
+
+console.log("me");
+console.log(graphData);
 
 var width = 300;
 var height = 300;
@@ -54,4 +91,3 @@ simulation.nodes(graphData).on("tick", function (d) {
       return d.y;
     });
 });
-//d3
