@@ -2,8 +2,8 @@ let graphData = [];
 var svg = d3
   .select("#mydata")
   .append("svg")
-  .attr("width", 200)
-  .attr("height", 200);
+  .attr("width", 150)
+  .attr("height", 150);
 
 var firebaseConfig = {
   apiKey: "AIzaSyDpJUKeG8a6eNrhXtd9-EsNuH0pVH9Qjhw",
@@ -154,11 +154,11 @@ firebase.auth().onAuthStateChanged(function (user) {
           var svg = d3
             .select("#mydata")
             .append("svg")
-            .attr("width", 200)
-            .attr("height", 200);
+            .attr("width", 150)
+            .attr("height", 150);
 
-          var width = 200;
-          var height = 200;
+          var width = 150;
+          var height = 150;
 
           // append the svg object to the body of the page
 
@@ -230,8 +230,8 @@ firebase.auth().onAuthStateChanged(function (user) {
         //d3
       });
 
-      var width = 200;
-      var height = 200;
+      var width = 150;
+      var height = 150;
 
       // append the svg object to the body of the page
 
