@@ -83,6 +83,7 @@ firebase.auth().onAuthStateChanged(function (user) {
 
   //initil write on auth because the event listener below listens for a click and here the click has already happened in anonymous sign in
   function write() {
+    let graphData = [];
     if (user) {
       console.log("added gratitude entry");
 
@@ -110,6 +111,7 @@ firebase.auth().onAuthStateChanged(function (user) {
 
   addGratitude.addEventListener("click", writeUserData);
   function writeUserData(e) {
+    let graphData = [];
     e.preventDefault();
 
     //gratitude.input.value is not == empty
@@ -147,6 +149,13 @@ firebase.auth().onAuthStateChanged(function (user) {
 
             //d3
           });
+
+          d3.select("svg").remove();
+          var svg = d3
+            .select("#mydata")
+            .append("svg")
+            .attr("width", 100)
+            .attr("height", 100);
 
           var width = 100;
           var height = 100;
