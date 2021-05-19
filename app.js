@@ -2,7 +2,7 @@ let graphData = [];
 var svg = d3
   .select("#mydata")
   .append("svg")
-  .attr("width", 100)
+  .attr("width", 300)
   .attr("height", 100);
 
 var firebaseConfig = {
@@ -157,7 +157,7 @@ firebase.auth().onAuthStateChanged(function (user) {
             .attr("width", 100)
             .attr("height", 100);
 
-          var width = 100;
+          var width = 300;
           var height = 100;
 
           // append the svg object to the body of the page
