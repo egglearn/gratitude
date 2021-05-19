@@ -146,6 +146,8 @@ firebase.auth().onAuthStateChanged(function (user) {
           gratitudeList.textContent = " ";
           snapshot.forEach(function (childSnapshot) {
             let datas = childSnapshot.val().gratitude;
+            let test = childSnapshot.val().gratitude;
+
             console.log(childSnapshot.val());
             graphData = [childSnapshot.val()];
 
